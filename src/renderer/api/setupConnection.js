@@ -12,10 +12,10 @@ export const setupConnection = (connection) => {
     .configure(socketio(socket))
     .configure(reactive({ idField: '_id' }))
 
-  store.commit(types.CS_CONNECTION_STATUS, { connection, status: 'Connnecting...' })
+  store.commit(types.CS_CONNECTION_STATUS, { connection, status: 'Connecting...' })
   socket.on('connect', () => {
     log.verbose(`Connection with address "${connection.address}" is connected.`)
-    store.commit(types.CS_CONNECTION_STATUS, { connection, status: 'Connnected' })
+    store.commit(types.CS_CONNECTION_STATUS, { connection, status: 'Connected' })
     store.commit(types.CS_CONNECTION_ESTABLISHED, { connection, established: true })
   })
 
