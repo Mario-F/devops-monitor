@@ -12,12 +12,13 @@
         <div class="pane-sm sidebar">
           <nav class="nav-group">
 
-            <!-- Server connections -->
             <h5 class="nav-group-title">Clients</h5>
             <router-link tag="span" :to="{ name: 'home' }" exact-active-class="active" class="nav-group-item">
               <span class="icon icon-home"></span>
               Home
             </router-link>
+
+            <!-- Server connections -->
             <template v-for="con in connectionsEstablished">
               <span class="nav-group-item">
                 <span class="icon icon-download"></span>

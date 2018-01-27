@@ -1,7 +1,7 @@
 import * as types from './mutation-types'
 import uuid from 'uuid/v4'
 import storage from 'electron-json-storage'
-import setupConnection from '../api/setupConnection'
+import setupConnection from '../api/connection/setup'
 
 export const addConnection = ({ commit }, connection) => {
   // If connection has no _id, create one an store connection in userdata

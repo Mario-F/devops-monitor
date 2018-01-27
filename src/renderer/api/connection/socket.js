@@ -1,18 +1,11 @@
 import log from 'electron-log'
-import * as types from '../store/mutation-types'
-import store from '../store'
-import feathers from '@feathersjs/feathers'
-import socketio from '@feathersjs/socketio-client'
-import reactive from 'feathers-reactive'
+import * as types from '../../store/mutation-types'
+import store from '../../store'
 import io from 'socket.io-client'
 
-export const setupConnection = (connection) => {
-  const socket = io(connection.address)
-  const client = feathers()
-    .configure(socketio(socket))
-    .configure(reactive({ idField: '_id' }))
+export const create = ({ connection, address }) => {
+  const socket = io(address)
 
-  store.commit(types.CS_CONNECTION_STATUS, { connection, status: 'Connecting...' })
   socket.on('connect', () => {
     log.verbose(`Connection with address "${connection.address}" is connected.`)
     store.commit(types.CS_CONNECTION_STATUS, { connection, status: 'Connected' })
@@ -35,11 +28,7 @@ export const setupConnection = (connection) => {
     store.commit(types.CS_CONNECTION_STATUS, { connection, status: `Failed to connect` })
   })
 
-  connection.disconnect = () => {
-    log.verbose(`Closing connection with address "${connection.address}".`)
-    store.commit(types.CS_CONNECTION_STATUS, { connection, status: `Disconnected` })
-    socket.close()
-  }
+  return socket
 }
 
-export default setupConnection
+export default create
