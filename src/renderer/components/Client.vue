@@ -1,5 +1,5 @@
 <template>
-  <div>Client pane: {{ $route.params.id }}</div>
+  <div>Client pane: {{ idClient }}</div>
 </template>
 
 <script>
