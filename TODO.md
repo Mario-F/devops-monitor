@@ -1,6 +1,6 @@
 # TODO - Things to be done before release
 
-## misc
+## MISC
 - Encapsulate browserView in isolated browserWindow
 - Separate Development, Testing and Production config
 
