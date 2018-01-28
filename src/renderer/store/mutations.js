@@ -2,6 +2,7 @@ import Vue from 'vue'
 import * as types from './mutation-types'
 
 export default {
+  // Configstorage mutations
   [types.CS_CONNECTION_ADD] (state, connection) {
     state.connections.push(connection)
   },
@@ -16,5 +17,13 @@ export default {
   },
   [types.CS_CONNECTION_ESTABLISHED] (state, { connection, established }) {
     Vue.set(connection, 'established', established)
+  },
+  [types.CS_CONNECTION_ESTABLISHED] (state, { connection, established }) {
+    Vue.set(connection, 'established', established)
+  },
+
+  // Displays on connection
+  [types.CONNECTION_SET_DISPLAYS] (state, { connection, displays }) {
+    Vue.set(connection, 'displays', displays)
   },
 }
