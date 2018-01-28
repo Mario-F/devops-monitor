@@ -20,10 +20,10 @@
 
             <!-- Server connections -->
             <template v-for="con in connectionsEstablished">
-              <span class="nav-group-item">
+              <router-link :to="{ name: 'client', params: { id: con._id } }" exact-active-class="active" class="nav-group-item">
                 <span class="icon icon-download"></span>
                 {{ con.name }}
-              </span>
+              </router-link>
             </template>
 
             <!-- Settings -->
