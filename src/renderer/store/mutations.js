@@ -26,4 +26,9 @@ export default {
   [types.CONNECTION_SET_DISPLAYS] (state, { connection, displays }) {
     Vue.set(connection, 'displays', displays)
   },
+
+  // Playlists on connection
+  [types.CONNECTION_SET_PLAYLISTS] (state, { connection, playlists }) {
+    Vue.set(connection, 'playlists', playlists)
+  },
 }

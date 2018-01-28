@@ -3,6 +3,7 @@
     <div>Client pane: {{ idClient }}</div>
     <div>Connection: {{ connectionById(idClient) }}</div>
     <div>Displays: {{ connectionById(idClient).displays }}</div>
+    <div>Playlists: {{ connectionById(idClient).playlists }}</div>
   </div>
 </template>
 

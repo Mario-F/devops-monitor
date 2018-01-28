@@ -7,3 +7,6 @@ export const CS_CONNECTION_ESTABLISHED    = 'CS_CONNECTION_ESTABLISHED'
 
 // Displays on connection
 export const CONNECTION_SET_DISPLAYS      = 'CONNECTION_SET_DISPLAYS'
+
+// Playlists on connection
+export const CONNECTION_SET_PLAYLISTS     = 'CONNECTION_SET_PLAYLISTS'
