@@ -22,18 +22,18 @@
   "dependencies": {
     "@feathersjs/configuration": "^1.0.2",
     "@feathersjs/express": "^1.1.2",
-    "@feathersjs/feathers": "^3.0.5",
+    "@feathersjs/feathers": "^3.1.7",
     "@feathersjs/socketio": "^3.0.2",
     "@feathersjs/socketio-client": "^1.0.2",
     "electron-json-storage": "^4.0.2",
-    "electron-log": "^2.2.14",
-    "feathers-nedb": "^3.0.0",
+    "electron-log": "^2.2.16",
+    "feathers-nedb": "^3.1.0",
     "feathers-reactive": "^0.5.4",
     "fs-jetpack": "^1.2.0",
     "lodash": "^4.17.4",
     "nedb": "^1.8.0",
     "source-map-support": "^0.5.3",
-    "uuid": "^3.2.1",
+    "uuid": "^3.3.2",
     "ws": "^4.0.0"
   },
   "devDependencies": {
