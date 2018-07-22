@@ -29,6 +29,7 @@
     "electron-log": "^2.2.16",
     "feathers-nedb": "^3.1.0",
     "feathers-reactive": "^0.5.4",
+    "feathers-swagger": "^0.7.1",
     "fs-jetpack": "^1.2.0",
     "lodash": "^4.17.4",
     "nedb": "^1.8.0",

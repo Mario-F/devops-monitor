@@ -7,6 +7,7 @@ import configuration from '@feathersjs/configuration'
 import express from '@feathersjs/express'
 import socketio from '@feathersjs/socketio'
 import reactive from 'feathers-reactive'
+import swagger from 'feathers-swagger'
 
 const server = express(feathers())
 server.configure(configuration())
@@ -14,6 +15,12 @@ server.use(express.json())
 server.use(express.urlencoded({ extended: true }))
 server.configure(express.rest())
 server.configure(socketio())
+
+// Swagger Documentation
+server.configure(swagger({
+  docsPath: '/docs',
+  uiIndex: true,
+}))
 
 server.on('connection', connection => server.channel('everybody').join(connection))
 server.publish(() => server.channel('everybody'))
