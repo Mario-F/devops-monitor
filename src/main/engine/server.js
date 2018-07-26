@@ -1,13 +1,13 @@
 import { app } from 'electron'
-import path from 'path'
-import NeDB from 'nedb'
-import service from 'feathers-nedb'
 import feathers from '@feathersjs/feathers'
 import configuration from '@feathersjs/configuration'
 import express from '@feathersjs/express'
 import socketio from '@feathersjs/socketio'
 import reactive from 'feathers-reactive'
 import swagger from 'feathers-swagger'
+
+import displaysService from './services/displays'
+import playlistsService from './services/playlists'
 
 const server = express(feathers())
 server.configure(configuration())
@@ -25,23 +25,13 @@ server.configure(swagger({
 server.on('connection', connection => server.channel('everybody').join(connection))
 server.publish(() => server.channel('everybody'))
 
-const dbDisplays = new NeDB({
-  filename: path.join(app.getPath('userData'), '/db-data/displays'),
-  autoload: true
-})
-server.use('/displays', service({
-  name: 'displays',
-  Model: dbDisplays,
-}))
+// Services
+server.use('/displays', displaysService())
+server.use('/playlists', playlistsService())
 
-const dbPlaylists = new NeDB({
-  filename: path.join(app.getPath('userData'), '/db-data/playlists'),
-  autoload: true
-})
-server.use('/playlists', service({
-  name: 'playlists',
-  Model: dbPlaylists,
-}))
+// Error Handlers
+server.use(express.notFound({ verbose: !!app.isDevelopment }))
+server.use(express.errorHandler())
 
 function start() {
   return new Promise((resolve, reject) => {
