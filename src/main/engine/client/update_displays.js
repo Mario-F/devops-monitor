@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import os from 'os'
 import { screen } from 'electron'
 import { displaysService } from '../client'
 
@@ -21,15 +22,17 @@ export function UpdateDisplays() {
               lastConnected: new Date(),
               connected: true,
               enabled: false,
+              hostname: os.hostname(),
             })
             return displaysService.create(ad)
           }
 
-          // If in database remove from deadktivate list and update display
+          // If in database remove from deaktivate list and update display
           strDisplays.splice(strDisplays.indexOf(ad._id), 1)
           Object.assign(ad, {
             lastConnected: new Date(),
             connected: true,
+            hostname: os.hostname(),
           })
           return displaysService.patch(ad._id, ad)
         }))
