@@ -15,7 +15,7 @@ export const setup = (connection) => {
     .configure(reactive({ idField: '_id' }))
 
   const subDisplays = client.service('displays').watch().find().subscribe((result) => {
-    log.verbose(`Connection "${connection.address}" receiving new display result.`)
+    log.verbose(`Connection "${connection.address}" receiving new display result, count: ${result.length}`)
     store.commit(types.CONNECTION_SET_DISPLAYS, { connection, displays: result })
   })
 
