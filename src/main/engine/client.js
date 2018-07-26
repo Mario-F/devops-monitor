@@ -26,7 +26,7 @@ function start(options) {
   playlistsService = client.service('playlists')
 
   UpdateDisplays().then(monitor).catch(console.error)
-  setInterval(UpdateDisplays, 10000)
+  setInterval(UpdateDisplays, 20000)
 }
 
 export default {
