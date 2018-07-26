@@ -3,12 +3,14 @@ import os from 'os'
 import { screen } from 'electron'
 import { displaysService } from '../client'
 
+const myHostname = os.hostname()
+
 export function UpdateDisplays() {
   return new Promise((resolve, reject) => {
     const actDisplays = screen.getAllDisplays()
     const strDisplays = []
 
-    displaysService.find()
+    displaysService.find({ hostname: myHostname })
       .then((resDisplays) => {
         resDisplays.forEach(d => strDisplays.push(d._id))
 
@@ -22,7 +24,7 @@ export function UpdateDisplays() {
               lastConnected: new Date(),
               connected: true,
               enabled: false,
-              hostname: os.hostname(),
+              hostname: myHostname,
             })
             return displaysService.create(ad)
           }
@@ -32,7 +34,7 @@ export function UpdateDisplays() {
           Object.assign(ad, {
             lastConnected: new Date(),
             connected: true,
-            hostname: os.hostname(),
+            hostname: myHostname,
           })
           return displaysService.patch(ad._id, ad)
         }))
