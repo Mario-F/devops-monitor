@@ -21,7 +21,7 @@ if (isDevelopment) {
 
   const userDataPath = app.getPath('userData')
   app.setPath('userData', `${userDataPath}_${productName}_dev`)
-  log.verbose('Started in development mode, set appData to:', `${userDataPath}_${productName}_dev`)
+  log.verbose('Started in development mode, set userData to:', `${userDataPath}_${productName}_dev`)
 }
 
 // Create temp userData folder for testing
