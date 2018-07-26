@@ -38,6 +38,7 @@ export function UpdateDisplays() {
         }))
       })
       // Deaktivate displays not around (left in strDisplays)
+      // TODO: For multiclient server needs to take hostname in mind
       .then((updDisplays) => {
         return Promise.all(strDisplays.map(dd => displaysService.patch(dd, { connected: false })))
       })
