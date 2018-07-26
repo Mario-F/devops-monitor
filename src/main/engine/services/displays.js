@@ -19,7 +19,7 @@ export default function() {
   })
 
   displaysService.docs = {
-
+    idType: 'string',
   }
 
   return displaysService

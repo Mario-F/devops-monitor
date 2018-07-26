@@ -15,7 +15,7 @@ export default function() {
   })
 
   playlistsService.docs = {
-
+    idType: 'string',
   }
 
   return playlistsService
