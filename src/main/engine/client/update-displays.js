@@ -16,10 +16,10 @@ export function UpdateDisplays() {
 
         // Update all displays or create displays
         return Promise.all(actDisplays.map((ad) => {
-          ad._id = ad.id
 
           // If display not in database
-          if(_.findIndex(resDisplays, ['_id', ad._id]) === -1) {
+          const dbIndex = _.findIndex(resDisplays, ['id', ad.id])
+          if(dbIndex === -1) {
             Object.assign(ad, {
               lastConnected: new Date(),
               connected: true,
@@ -30,13 +30,13 @@ export function UpdateDisplays() {
           }
 
           // If in database remove from deaktivate list and update display
-          strDisplays.splice(strDisplays.indexOf(ad._id), 1)
+          strDisplays.splice(strDisplays.indexOf(resDisplays[dbIndex]._id), 1)
           Object.assign(ad, {
             lastConnected: new Date(),
             connected: true,
             hostname: myHostname,
           })
-          return displaysService.patch(ad._id, ad)
+          return displaysService.patch(resDisplays[dbIndex]._id, ad)
         }))
       })
       // Deaktivate displays not around (left in strDisplays)
