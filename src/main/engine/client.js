@@ -4,7 +4,7 @@ import socketio from '@feathersjs/socketio-client'
 import reactive from 'feathers-reactive'
 import io from 'socket.io-client'
 
-import { UpdateDisplays } from './client/update_displays'
+import { UpdateDisplays } from './client/update-displays'
 import monitor from './monitor'
 
 let displaysService = null
