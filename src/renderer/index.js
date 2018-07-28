@@ -2,6 +2,7 @@
 import '../assets/css/photon.css'
 
 import Vue from 'vue'
+import moment from 'vue-moment'
 import App from './App.vue'
 import router from './router'
 import store from './store'
@@ -31,3 +32,6 @@ const app = new Vue({
   el: '#app',
   render: h => h(App),
 })
+
+// Bind vue moment to Vue
+Vue.use(moment)
