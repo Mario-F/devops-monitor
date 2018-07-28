@@ -1,10 +1,6 @@
 <template>
   <div class="window">
 
-    <!-- Header -->
-    <header class="toolbar toolbar-header">
-      <h1 class="title">Header</h1>
-    </header>
     <div class="window-content">
       <div class="pane-group">
 
@@ -47,10 +43,6 @@
       </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="toolbar toolbar-footer">
-      <h1 class="title">Footer</h1>
-    </footer>
   </div>
 </template>
 
