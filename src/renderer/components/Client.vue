@@ -7,12 +7,16 @@
     </header>
     <table class="table-striped">
       <thead>
-        <tr><th>Host</th><th>Display ID</th><th>Dimensions</th><th>Alive</th><th>Playlist</th></tr>
+        <tr><th>Host</th><th>Name</th><th>Display ID</th><th>Dimensions</th><th>Active</th><th>Playlist</th></tr>
       </thead>
       <tbody>
         <tr v-for="dis in connectionById(idClient).displays">
           <td>
             {{ dis.hostname }}
+          </td>
+          <td>
+            <template v-if="dis.name">{{ dis.name }}</template>
+            <template v-else>None</template>
           </td>
           <td>
             {{ dis.id }}
@@ -21,7 +25,8 @@
             {{ dis.size.width }}x{{ dis.size.height }}
           </td>
           <td>
-            {{ dis.connected }}
+            <template v-if="dis.connected">Yes</template>
+            <template v-else>{{ dis.lastConnected | moment("from") }}</template>
           </td>
           <td>
             {{ playlistByDisplay(dis.id) }}
