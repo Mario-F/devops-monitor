@@ -1,3 +1,4 @@
+import log from 'electron-log'
 import { app } from 'electron'
 import path from 'path'
 import NeDB from 'nedb'
