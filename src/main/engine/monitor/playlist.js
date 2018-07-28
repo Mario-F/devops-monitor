@@ -6,6 +6,7 @@ import View from './view'
 const SpawnPlaylist = (idPlaylist) => {
   log.verbose('Playlist spawned, id:', idPlaylist)
 
+  // TODO: Make myView usable as array of displays
   let myView = null
 
   // Subscribe to my playlist
