@@ -78,8 +78,8 @@ export default {
     playlistByDisplay: function() {
       return (idDisplay) => {
         let resPly = this.connectionById(this.idClient).playlists.filter(p => p.show == idDisplay)
-        if(!resPly) return false
-        return resPly.map(p => p.name).join()
+        if(!resPly || resPly.length == 0) return false
+        return resPly.map(p => p.name).join(',')
       }
     },
   },
